@@ -6,6 +6,8 @@
     <title>Getflix-project</title>
 </head>
 <body>
-    bonjour
+    <?php
+        include "include/connect.php";
+    ?>
 </body>
 </html>
