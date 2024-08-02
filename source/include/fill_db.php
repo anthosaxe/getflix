@@ -49,7 +49,8 @@ function fill_db() {
                 $genre_ids = $movie['genre_ids'];
                 $image_url = isset($movie['backdrop_path']) ? "https://image.tmdb.org/t/p/w500" . $movie['backdrop_path'] : NULL;
 
-                foreach ($genre_ids as $genre_id) {
+                if (count($genre_ids) > 0) {
+                    $genre_id = $genre_ids[0]; // Take only the first genre ID
                     $genre_name = get_genre_name($genre_id, $pdo);
 
                     // Check if the category already exists
@@ -101,4 +102,5 @@ function get_genre_name($genre_id, $pdo) {
     return isset($genres[$genre_id]) ? $genres[$genre_id] : 'Unknown';
 }
 
+fill_db();
 ?>

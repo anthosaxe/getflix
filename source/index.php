@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        include "include/fill_db.php";
+        
     ?>
 </body>
 </html>
