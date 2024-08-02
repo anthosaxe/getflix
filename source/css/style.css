@@ -6,6 +6,10 @@
 background-color: #4853e4;
 }
 
+.btn-profil {
+    background-color: #ea13b6;
+}
+
 .body-color {
     background: rgb(7,0,209);
     background: radial-gradient(circle, rgba(7,0,209,1) 58%, rgba(252,70,107,1) 100%); 
