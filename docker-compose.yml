@@ -10,13 +10,9 @@ services:
       - ./source:/var/www/html
     build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     depends_on:
       - db
-    environment:
-      - PHP_EXTENSION=mysqli
-    command: >
-      bash -c "docker-php-ext-install mysqli && apache2-foreground"
 
   db:
     image: mysql:8.0

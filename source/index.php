@@ -1,31 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once 'config.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <title>Login Page</title>
-</head>
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-<body>
-    <h1>Login Page Test</h1>
-    <?php if (isset($_GET['error'])) { ?>
-    <p class="error">
-        <?php echo $_GET['error']; ?>
-    </p>
-    <?php } ?>
+    $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-    <form action="login.php" method="post">
-        <label for="user">User Name</label>
-        <input type="text" name="uname" placeholder="User Name">
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password Please">
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = $conn->query($query);
 
-        <button type="submit">Login, now!</button>
+    if ($result->num_rows > 0) {
+        echo "Login successful!";
+    } else {
+        echo "Invalid username or password";
+    }
 
-    </form>
-</body>
+    $conn->close();
+}
 
-</html>
+?>
+
+<form action="" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+
+    <input type="submit" value="Login">
+</form>
