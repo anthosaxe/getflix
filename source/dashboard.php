@@ -20,8 +20,31 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
     <div class="container">
-        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
         <p>This is your dashboard.</p>
+
+        <?php if ($_SESSION['role'] === 'admin') : ?>
+            <div class="admin-section">
+                <h2>Admin Section</h2>
+                <p>This content is only visible to administrators.</p>
+                <!-- Add admin-specific features here -->
+                <ul>
+                    <li><a href="manage_users.php">Manage Users</a></li>
+                    <li><a href="site_settings.php">Site Settings</a></li>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+        <div class="user-section">
+            <h2>User Section</h2>
+            <p>This content is visible to all users.</p>
+            <!-- Add user-specific features here -->
+            <ul>
+                <li><a href="edit_profile.php">Edit Profile</a></li>
+                <li><a href="view_content.php">View Content</a></li>
+            </ul>
+        </div>
+
         <a href="logout.php">Logout</a>
     </div>
 </body>

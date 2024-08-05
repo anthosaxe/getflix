@@ -1,7 +1,12 @@
 <?php
 session_start();
 ?>
-
+<?php
+if (isset($_SESSION['error'])) {
+    echo "<p class='error'>{$_SESSION['error']}</p>";
+    unset($_SESSION['error']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +32,9 @@ session_start();
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <label>
+                <input type="checkbox" name="newsletter"> Subscribe to newsletter
+            </label>
             <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="index.php">Login here</a></p>

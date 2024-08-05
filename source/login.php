@@ -16,14 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
 
-    $sql = "SELECT id, username, password FROM users WHERE username = '$username'";
-    $result = $conn->query($sql);
+    $sql = "SELECT id, username, password, role FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
+            $_SESSION['role'] = $row['role'];
             header("Location: dashboard.php");
         } else {
             $_SESSION['error'] = "Invalid username or password";
@@ -33,6 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['error'] = "Invalid username or password";
         header("Location: index.php");
     }
+
+    $stmt->close();
 }
 
 $conn->close();
