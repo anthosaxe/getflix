@@ -1,19 +1,44 @@
-#custom-color {
-    color: #ea13b6;
-}
+
+/* NAVBAR UP: couleur et texte s'y trouvant. */
 
 #navbar-color {
 background-color: #4853e4;
 }
 
+#custom-color {
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur pour le positionnement vertical */
+    left: 55px; /* Ajustez cette valeur pour le positionnement horizontal */
+    height: auto;
+    color: #ea13b6;
+}
+
+
+.logo {
+    position: absolute;
+    top: 1px; /* Ajustez cette valeur pour le positionnement vertical */
+    left: 1px; /* Ajustez cette valeur pour le positionnement horizontal */
+    bottom: 1px;
+    height: auto;
+    width: 50px; /* Ajustez cette taille pour que l'image soit légèrement plus grande que le texte */
+}
+
 .btn-profil {
     background-color: #ea13b6;
+    margin-left: 2%;
+    border: 1px;
+    border-radius:10%;
+color: white;
 }
+
+/* BODY :  */
 
 .body-color {
     background: rgb(7,0,209);
     background: radial-gradient(circle, rgba(7,0,209,1) 58%, rgba(252,70,107,1) 100%); 
 }
+
+/* FOrmulaires : */
 
 .container-form {
     max-width: 400px; 
@@ -27,6 +52,19 @@ background-color: #4853e4;
     background: linear-gradient(0deg, rgba(195,34,164,1) 0%, rgba(12,201,30,1) 100%);
 }
 
+/* CONFIDENTIALITE : couleur du texte.*/
+
 #text-color {
     text-decoration: #ddd;
+}
+
+/*NAVBAR SIDE */
+
+
+.main-box .sidebar_menu{
+position: fixed;
+background: rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 6px rgba(189, 19, 19, 0.5);
+height: 100vh;
+width: 280px;
 }

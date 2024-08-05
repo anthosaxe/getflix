@@ -12,7 +12,10 @@
 <body class="body-color">
   <nav class="navbar" id="navbar-color">
     <div class="container-fluid">
-      <a class="navbar-brand" id="custom-color">FailFlix</a>
+     <div><a href= "./main.php" class="navbar-brand" id="custom-color">FailFlix</a></div>
+     <div class="image-container">
+        <img src="./images/cochon.jpg" alt="cochon" class="zoom-image" id="zoomImage">
+    </div>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Tu veux quoi ?" aria-label="Search">
         <button class="btn btn-success" type="submit">Rechercher</button>
