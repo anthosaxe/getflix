@@ -10,10 +10,7 @@
 <body class="body-color">
   <nav class="navbar" id="navbar-color">
     <div class="container-fluid">
-      <a href= "./main.php" class="navbar-brand" id="custom-color">FailFlix</a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Tu veux quoi ?" aria-label="Search">
-        <button class="btn btn-success" type="submit">Rechercher</button>
+      <a href= "./main.php" class="navbar-brand" id="custom-color">FailFlix</a>        <button class="btn btn-success" type="submit">Rechercher</button>
       </form>
     </div>
   </nav>
