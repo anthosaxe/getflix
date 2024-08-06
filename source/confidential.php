@@ -8,12 +8,14 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body class="body-color">
-  <nav class="navbar" id="navbar-color">
-    <div class="container-fluid">
-      <a href= "./main.php" class="navbar-brand" id="custom-color">FailFlix</a>        <button class="btn btn-success" type="submit">Rechercher</button>
-      </form>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg" id="navbar-color">
+        <div class="container-fluid">
+            <a href="./main.php" class="navbar-brand" id="custom-color">FailFlix</a>
+            <div class="d-flex ms-auto">
+                <button class="btn btn-success" type="submit">Rechercher</button>
+            </div>
+        </div>
+    </nav>
   <div class="text-success">
     <h1>Politique de Confidentialité de FAILFLIX</h1>
   </div>

@@ -13,15 +13,6 @@ background-color: #4853e4;
     color: #ea13b6;
 
 }
-/* LOGO */
-.logo-cochon {
-    position: absolute;
-    top: 1px; /* Ajustez cette valeur pour le positionnement vertical */
-    left: 1px; /* Ajustez cette valeur pour le positionnement horizontal */
-    bottom: 1px;
-    height: auto;
-    width: 50px; /* Ajustez cette taille pour que l'image soit légèrement plus grande que le texte */
-}
 
 .btn-profil {
     background-color: #ea13b6;
@@ -31,6 +22,22 @@ background-color: #4853e4;
 color: white;
 }
 
+/* Bouton filtre pour les video*/
+
+#filtre-video {
+    position: absolute;
+    top: 90px; 
+    right: 40px;
+    font-size: 20px;
+}
+.filtre-container {
+position: fixed;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 6px rgba(189, 19, 19, 0.5);
+    height: 100vh;
+    width: 200px;
+    left: -280px;
+}
 
 
 /* BODY :  */
@@ -123,7 +130,19 @@ color: white;
     #text-color {
         text-decoration: #ddd;
     }
+
+    /*photo du logo en grand sur les pages principale*/
     
+
+    /*Compartiment textes et vidéos des pages qui englobent de la vidéo data*/
+    
+    .text-video {
+        margin: 100px;
+        padding-left: 200px;
+        color: #fff;
+    }
+
+
     /*NAVBAR SIDE */
     
     
