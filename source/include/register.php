@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <?php
 if (isset($_SESSION['error'])) {
@@ -7,7 +7,7 @@ if (isset($_SESSION['error'])) {
     unset($_SESSION['error']);
 }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -41,4 +41,4 @@ if (isset($_SESSION['error'])) {
     </div>
 </body>
 
-</html>
+</html> -->

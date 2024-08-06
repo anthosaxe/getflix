@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 $host = 'db';
 $user = 'user';
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($password !== $confirm_password) {
         $_SESSION['error'] = "Passwords do not match";
-        header("Location: register.php");
+        header("Location: ../formulaireIn.php");
         exit();
     }
 
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         if ($stmt->execute()) {
             $_SESSION['success'] = "Registration successful. You can now log in.";
-            header("Location: index.php");
+            header("Location: ../main.php");
             exit();
         } else {
             throw new Exception("Registration failed. Please try again.");
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION['error'] = "An error occurred during registration. Please try again.";
         }
-        header("Location: register.php");
+        header("Location: ../formulaireIn.php");
         exit();
     } catch (Exception $e) {
         $_SESSION['error'] = $e->getMessage();
