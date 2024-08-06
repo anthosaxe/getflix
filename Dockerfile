@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 
 # Mettre à jour le système
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
 # Installer les extensions PHP nécessaires
 RUN docker-php-ext-install mysqli pdo pdo_mysql
