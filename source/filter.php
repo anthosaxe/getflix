@@ -34,6 +34,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <?php
         include "./include/filter_db.php";
+        $test = get_by_genre(('western'));
+        show_films($test);
       ?>
     </div>
   </div>

@@ -4,7 +4,7 @@ include "connect.php";
 function fill_db() {
     $pdo = connect();
 
-    for ($number = 1; $number <= 200; $number++) {
+    for ($number = 1; $number <= 100; $number++) {
         $baseUrl = "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&page=$number&sort_by=popularity.desc&vote_average.gte=0.1&vote_average.lte=5&vote_count.gte=100";
 
         $curl = curl_init();

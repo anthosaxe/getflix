@@ -25,6 +25,7 @@ function get_by_name($name) {
 function show_films($data){
     foreach($data as $res){
         echo "<div class='relative group w-full'>";
+        echo "<a>";
         echo "<img src='".$res['image_url']."' alt='Movie Poster' class='w-full h-full object-cover'>";
         echo "<div class='absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center opacity-0 overlay transition-opacity duration-300'>";
         echo "<div class='text-center text-white'>";
@@ -32,6 +33,7 @@ function show_films($data){
         echo "<p class='mt-2 text-lg'>Note: ".$res['rating']."</p>";
         echo "</div>";
         echo "</div>";
+        echo "</a>";
         echo "</div>";
       }
 }
