@@ -1,0 +1,37 @@
+#custom-color {
+    color: #ea13b6;
+}
+
+
+div.container-fluid {
+    background-color: #4853e4;
+}
+
+
+body {
+    background: rgb(7,0,209);
+    background: radial-gradient(circle, rgba(7,0,209,1) 58%, rgba(252,70,107,1) 100%); 
+    
+}
+.dropdown {
+    display: flex;
+    justify-content:right;
+}
+
+div.input-group {
+    justify-content: center;
+    padding-top: 150px;
+}
+
+div.container {
+    display: flex;
+    justify-content: center;
+}
+
+div.btn-primary {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin: 50px;
+    padding: 0px;
+}
