@@ -23,9 +23,9 @@
         </div>
     </nav>
    
-   <div >
+   <div class="filter-box" >
     <h4>filtres</h4>
-    <div id="filter-box">
+    <div class="checkboxes">
         <label for="post"><input type="checkbox" value="Action" onchange="filtrerContenu()">Action</label>
         <label for="post"><input type="checkbox" value="Adventure" onchange="filtrerContenu()">Aventure</label>
         <label for="post"><input type="checkbox" value="Animation" onchange="filtrerContenu()">Animation</label>
@@ -37,7 +37,7 @@
         <label for="post"><input type="checkbox" value="Fantasy" onchange="filtrerContenu()">Fantaisie</label>
         <label for="post"><input type="checkbox" value="History" onchange="filtrerContenu()">Histoire</label>
        </div>
-       <div>
+       <div class="checkboxes">
         <label for="post"><input type="checkbox" value="Horror" onchange="filtrerContenu()">Horreur</label>
         <label for="post"><input type="checkbox" value="Music" onchange="filtrerContenu()">Musique</label>
         <label for="post"><input type="checkbox" value="Mystery" onchange="filtrerContenu()">Mystère</label>
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <div class="text-video">    
+    <div class="text-video" id="contenu">    
 <h3>Suggestions</h3>
 <?php
 /*DATA BASE*/
@@ -93,13 +93,13 @@
 ?>
 <br><br><br>
 
-<h3>Non recommandé</h3>
+<h3>Action</h3>
 <?php
 /*DATA BASE*/
 ?>
 <br><br><br>
 
-<h3>Action</h3>
+<h3>Aventure</h3>
 <?php
 /*DATA BASE*/
 ?>
