@@ -7,7 +7,6 @@ function fill_db() {
     for ($number = 1; $number <= 200; $number++) {
         $baseUrl = "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&page=$number&sort_by=popularity.desc&vote_average.gte=0.1&vote_average.lte=5&vote_count.gte=100";
 
-        // Set up the cURL options
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_URL => $baseUrl,
@@ -23,20 +22,16 @@ function fill_db() {
             ],
         ]);
 
-        // Execute the cURL request and get the response
         $response = curl_exec($curl);
 
-        // Check for cURL errors
         if ($response === false) {
             echo "cURL Error: " . curl_error($curl);
             curl_close($curl);
             exit();
         }
 
-        // Close the cURL session
         curl_close($curl);
 
-        // Decode the JSON response
         $data = json_decode($response, true);
 
         // Check if results are present
@@ -53,16 +48,13 @@ function fill_db() {
                     $genre_id = $genre_ids[0]; // Take only the first genre ID
                     $genre_name = get_genre_name($genre_id, $pdo);
 
-                    // Check if the category already exists
                     $stmt = $pdo->prepare("SELECT id FROM categories WHERE id = ?");
                     $stmt->execute([$genre_id]);
                     if ($stmt->rowCount() == 0) {
-                        // Insert new category
                         $stmt = $pdo->prepare("INSERT INTO categories (id, name) VALUES (?, ?)");
                         $stmt->execute([$genre_id, $genre_name]);
                     }
 
-                    // Insert movie data
                     $stmt = $pdo->prepare("INSERT INTO movies (title, description, release_date, rating, category_id, image_url) VALUES (?, ?, ?, ?, ?, ?)");
                     $stmt->execute([$title, $description, $release_date, $rating, $genre_id, $image_url]);
                 }
@@ -74,8 +66,6 @@ function fill_db() {
 }
 
 function get_genre_name($genre_id, $pdo) {
-    // You can fetch genre names from TMDb or hardcode the values
-    // Here, we'll use a simple hardcoded mapping for demonstration purposes
 
     $genres = [
         28 => 'Action',
