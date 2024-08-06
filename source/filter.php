@@ -18,7 +18,7 @@
 
 <body class="body-color">
 
-  <nav class="color-class border-gray-200">
+  <nav class="color-class border-gray-200 sticky top-0 z-50">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
       <a href="./main.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="./images/cochon.jpg" class="h-8" alt="Flowbite Logo" />
@@ -34,7 +34,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <?php
         include "./include/filter_db.php";
-        $test = get_by_genre(('western'));
+        $test = get_by_genre('comedy');
         show_films($test);
       ?>
     </div>

@@ -43,12 +43,10 @@ $results = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['genre']) && !empty($_POST['genre'])) {
         $genre = $_POST['genre'];
-        echo '<h1 class="text-5xl font-extrabold dark:text-white">'.$genre.'</h1>';
         $results = get_by_genre($genre);
         show_films($results);
     } elseif (isset($_POST['name']) && !empty($_POST['name'])) {
         $name = $_POST['name'];
-        echo '<h1 class="text-5xl font-extrabold dark:text-white"> Recherche pour : '.$Name.'</h1>';
         $results = get_by_name($name);
         show_films($results);
     } else {
