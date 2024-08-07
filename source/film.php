@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,14 +11,24 @@
     .group:hover .overlay {
       opacity: 1;
     }
+
     .color-class {
       background-color: #4853e4;
     }
+
     body {
-      padding-top: 72px; /* Adjust this value based on the actual height of your navbar */
+      padding-top: 72px;
+      /* Adjust this value based on the actual height of your navbar */
     }
+
+    .no-text-select {
+      cursor: default;
+    }
+
+    ;
   </style>
 </head>
+
 <body class="body-color">
   <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
@@ -39,72 +50,98 @@
     </div>
   </div>
 
+  <div id="genre">
+    <button id="comedy">
+      comédie
+    </button>
+    <button id="western">
+      cow-boy
+    </button>
+  </div>
+
+
   <script>
     let movies = [];
     let currentPage = 0;
-    const moviesPerPage = 12;
+    const moviesPerPage = 8;
 
-    document.addEventListener('DOMContentLoaded', function() {
-      fetchMoviesByGenre('comedy');
+    document.querySelectorAll('div[id="genre"]').forEach(div => {
+      div.addEventListener('click', (event) => {
+        const genre = event.target.id;
+        fetchMoviesByGenre(genre);
+      });
     });
+
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   fetchMoviesByGenre('comedy');
+    // });
 
     function fetchMoviesByGenre(genre) {
       fetch('./include/filter_db.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ genre: genre }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        movies = data;
-        displayMovies();
-        updatePaginationControls();
-      })
-      .catch(error => console.error('Error fetching data:', error));
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            genre: genre
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          movies = data;
+          displayMovies();
+          updatePaginationControls();
+        })
+        .catch(error => console.error('Error fetching data:', error));
     }
 
     function displayMovies() {
-      const movieGrid = document.getElementById('movie-grid');
-      movieGrid.innerHTML = '';
+    const movieGrid = document.getElementById('movie-grid');
+    movieGrid.innerHTML = '';
 
-      const start = currentPage * moviesPerPage;
-      const end = start + moviesPerPage;
-      const paginatedMovies = movies.slice(start, end);
+    const start = currentPage * moviesPerPage;
+    const end = start + moviesPerPage;
+    const paginatedMovies = movies.slice(start, end);
 
-      paginatedMovies.forEach(movie => {
-        const movieDiv = document.createElement('div');
-        movieDiv.className = 'relative group w-full';
-        
-        const movieImg = document.createElement('img');
-        movieImg.src = movie.image_url;
-        movieImg.alt = 'Movie Poster';
-        movieImg.className = 'w-full h-full object-cover';
-        
-        const overlayDiv = document.createElement('div');
-        overlayDiv.className = 'absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center opacity-0 overlay transition-opacity duration-300';
-        
-        const textDiv = document.createElement('div');
-        textDiv.className = 'text-center text-white';
-        
-        const title = document.createElement('h2');
-        title.className = 'text-xl font-bold';
-        title.textContent = movie.title;
-        
-        const rating = document.createElement('p');
-        rating.className = 'mt-2 text-lg';
-        rating.textContent = `Note: ${movie.rating}`;
-        
-        textDiv.appendChild(title);
-        textDiv.appendChild(rating);
-        overlayDiv.appendChild(textDiv);
-        movieDiv.appendChild(movieImg);
-        movieDiv.appendChild(overlayDiv);
-        
-        movieGrid.appendChild(movieDiv);
+    paginatedMovies.forEach(movie => {
+      const movieDiv = document.createElement('div');
+      movieDiv.className = 'relative group w-full';
+      movieDiv.setAttribute('data-name', movie.title); // Ajoutez le nom du film en tant qu'attribut
+
+      const movieImg = document.createElement('img');
+      movieImg.src = movie.image_url;
+      movieImg.alt = 'Movie Poster';
+      movieImg.className = 'w-full h-full object-cover';
+
+      const overlayDiv = document.createElement('div');
+      overlayDiv.className = 'absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center opacity-0 overlay transition-opacity duration-300';
+
+      const textDiv = document.createElement('div');
+      textDiv.className = 'text-center text-white';
+
+      const title = document.createElement('h2');
+      title.className = 'text-xl font-bold no-text-select';
+      title.textContent = movie.title;
+
+      const rating = document.createElement('p');
+      rating.className = 'mt-2 text-lg no-text-select';
+      rating.textContent = `Note: ${movie.rating}`;
+
+      textDiv.appendChild(title);
+      textDiv.appendChild(rating);
+      overlayDiv.appendChild(textDiv);
+      movieDiv.appendChild(movieImg);
+      movieDiv.appendChild(overlayDiv);
+
+      // Ajoutez un gestionnaire de clic pour rediriger vers film_data.php
+      movieDiv.addEventListener('click', () => {
+        window.location.href = `film_data.php?name=${encodeURIComponent(movie.title)}`;
       });
-    }
+
+      movieGrid.appendChild(movieDiv);
+    });
+  }
 
     function changePage(direction) {
       currentPage += direction;
@@ -125,4 +162,5 @@
     }
   </script>
 </body>
+
 </html>

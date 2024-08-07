@@ -1,7 +1,8 @@
 <?php
 include "connect.php";
 
-function get_by_genre($genre) {
+function get_by_genre($genre)
+{
     $pdo = connect();
     $stmt = $pdo->prepare("SELECT movies.*, categories.name AS category_name FROM movies JOIN categories ON movies.category_id = categories.id 
         WHERE categories.name = :genre");
@@ -11,7 +12,8 @@ function get_by_genre($genre) {
     return $results;
 }
 
-function get_by_name($name) {
+function get_by_name($name)
+{
     $pdo = connect();
     $name = "%$name%";
     $stmt = $pdo->prepare("SELECT movies.*, categories.name AS category_name FROM movies JOIN categories ON movies.category_id = categories.id 
@@ -55,7 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo json_encode($results);
 }
-?>
 
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['name']) && !empty($_GET['name'])) {
+        $name = $_GET['name'];
+        $results = get_by_name($name);
+    } else {
+        $results = ["error" => "Search type or value not specified"];
+    }
 
-
+    echo json_encode($results);
+}
