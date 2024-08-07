@@ -9,7 +9,7 @@
     padding: 10px; 
     border: 1px solid #ddd; 
     border-radius: 8px; 
-    opacity: 0.5;
+    opacity: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000; /* S'assure que la boîte est au-dessus des autres éléments (intéressant pour superposer). */
 }
@@ -130,6 +130,10 @@ background-color: #4853e4;
     border: 1px;
     border-radius:10%;
 color: white;
+}
+
+#navbarNav {
+    margin-left: 200px;
 }
 
 /* Bouton filtre pour les video*/

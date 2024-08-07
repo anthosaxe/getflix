@@ -11,24 +11,43 @@
 </head>
 
 <body class="body-color">
-<nav class="navbar navbar-expand-lg" id="navbar-color">
-        <div class="container-fluid">
-            <div class="d-flex ms-auto">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar-color">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./main.php" id="custom-color">FailFlix</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+        <li class="nav-item">
+     <a class="nav-link" href="#" >Team</a>
+        </li>
+         <div class="d-flex ms-auto">
             <input class="form-control me-2" type="search" placeholder="Tu veux quoi ?" aria-label="Search">
                 <button class="btn btn-success" type="submit">Rechercher</button>
             </div>
             <div>
                 <a href="#"><button>profil</button></i></a>
-            </div>
-        </div>
-    </nav>
-   
+            </div>  
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br> 
     <div class="filter-box">
         <input type="checkbox" id="filter-toggle">
         <div class="btn-filter">
             <label for="filter-toggle">
                 <i class="fa-solid fa-sliders"></i>
-                Filtrer
+                Genres
             </label>
         </div>
         <div class="filter-menu">
