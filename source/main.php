@@ -40,7 +40,7 @@
   <br>
   <br>
   <br> 
-    <div class="filter-box">
+  <div class="filter-box">
         <input type="checkbox" id="filter-toggle">
         <div class="btn-filter">
             <label for="filter-toggle">
@@ -51,33 +51,32 @@
         <div class="filter-menu">
             <div class="filter-content">
                 <h4>Filtrer par Genre</h4>
-                <form id="filter-form">
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" value="Action" onchange="filtrerContenu()">Action</label>
-                        <label><input type="checkbox" value="Adventure" onchange="filtrerContenu()">Aventure</label>
-                        <label><input type="checkbox" value="Animation" onchange="filtrerContenu()">Animation</label>
-                        <label><input type="checkbox" value="Comedy" onchange="filtrerContenu()">Comédie</label>
-                        <label><input type="checkbox" value="Crime" onchange="filtrerContenu()">Crime</label>
-                        <label><input type="checkbox" value="Documentary" onchange="filtrerContenu()">Documentaire</label>
-                        <label><input type="checkbox" value="Drama" onchange="filtrerContenu()">Drame</label>
-                        <label><input type="checkbox" value="Family" onchange="filtrerContenu()">Famille</label>
-                        <label><input type="checkbox" value="Fantasy" onchange="filtrerContenu()">Fantaisie</label>
-                        <label><input type="checkbox" value="History" onchange="filtrerContenu()">Histoire</label>
-                        <label><input type="checkbox" value="Horror" onchange="filtrerContenu()">Horreur</label>
-                        <label><input type="checkbox" value="Music" onchange="filtrerContenu()">Musique</label>
-                        <label><input type="checkbox" value="Mystery" onchange="filtrerContenu()">Mystère</label>
-                        <label><input type="checkbox" value="Romance" onchange="filtrerContenu()">Romance</label>
-                        <label><input type="checkbox" value="ScienceFiction" onchange="filtrerContenu()">Science Fiction</label>
-                        <label><input type="checkbox" value="Thriller" onchange="filtrerContenu()">Thriller</label>
-                        <label><input type="checkbox" value="TvMovie" onchange="filtrerContenu()">TV Movie</label>
-                        <label><input type="checkbox" value="War" onchange="filtrerContenu()">Guerre</label>
-                        <label><input type="checkbox" value="Western" onchange="filtrerContenu()">Western</label>
-                    </div>
-                </form>
+                <div class="genre-buttons">
+                    <button class="genre-btn" data-genre="Action">Action</button>
+                    <button class="genre-btn" data-genre="Adventure">Aventure</button>
+                    <button class="genre-btn" data-genre="Animation">Animation</button>
+                    <button class="genre-btn" data-genre="Comedy">Comédie</button>
+                    <button class="genre-btn" data-genre="Crime">Crime</button>
+                    <button class="genre-btn" data-genre="Documentary">Documentaire</button>
+                    <button class="genre-btn" data-genre="Drama">Drame</button>
+                    <button class="genre-btn" data-genre="Family">Famille</button>
+                    <button class="genre-btn" data-genre="Fantasy">Fantaisie</button>
+                    <button class="genre-btn" data-genre="History">Histoire</button>
+                    <button class="genre-btn" data-genre="Horror">Horreur</button>
+                    <button class="genre-btn" data-genre="Music">Musique</button>
+                    <button class="genre-btn" data-genre="Mystery">Mystère</button>
+                    <button class="genre-btn" data-genre="Romance">Romance</button>
+                    <button class="genre-btn" data-genre="ScienceFiction">Science Fiction</button>
+                    <button class="genre-btn" data-genre="Thriller">Thriller</button>
+                    <button class="genre-btn" data-genre="TvMovie">TV Movie</button>
+                    <button class="genre-btn" data-genre="War">Guerre</button>
+                    <button class="genre-btn" data-genre="Western">Western</button>
+                </div>
             </div>
         </div>
     </div>
 
+    
     <div class="main-box">
         <input type="checkbox" id="check">
         <div class="btn-one">
@@ -111,65 +110,6 @@
 
     <div class="text-video" id="contenu">    
 <h3>Suggestions</h3>
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="img_chania.jpg" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="img_chania2.jpg" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="img_flower.jpg" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beautiful flowers in Kolymbari, Crete.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="img_flower2.jpg" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beautiful flowers in Kolymbari, Crete.</p>
-        </div>
-      </div>
-  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
 
 <br><br><br>
 <h3>Reprendre</h3>
@@ -205,6 +145,49 @@
   <footer>
 
   </footer>
+
+<script>
+    // Récupérer les éléments de la fenêtre modale
+    const genreModal = document.getElementById('genreModal');
+    const genreBtn = document.getElementById('genreBtn');
+    const closeBtn = document.querySelector('.close');
+
+    // Ouvrir la fenêtre modale lorsque l'utilisateur clique sur le bouton Genre
+    genreBtn.onclick = function() {
+        genreModal.style.display = 'block';
+    }
+
+    // Fermer la fenêtre modale lorsque l'utilisateur clique sur le bouton de fermeture
+    closeBtn.onclick = function() {
+        genreModal.style.display = 'none';
+    }
+
+    // Fermer la fenêtre modale si l'utilisateur clique en dehors du contenu de la fenêtre modale
+    window.onclick = function(event) {
+        if (event.target === genreModal) {
+            genreModal.style.display = 'none';
+        }
+    }
+
+    // Gérer la sélection des boutons de genre
+    document.querySelectorAll('.genre-btn').forEach(button => {
+        button.onclick = function() {
+            this.classList.toggle('active');
+            filtrerContenu();
+        }
+    });
+
+    // Fonction pour filtrer le contenu basé sur les genres sélectionnés
+    function filtrerContenu() {
+        const selectedGenres = Array.from(document.querySelectorAll('.genre-btn.active'))
+            .map(button => button.getAttribute('data-genre'));
+
+        console.log('Genres sélectionnés:', selectedGenres);
+        // Ici, tu peux ajouter la logique pour filtrer les films selon les genres sélectionnés
+        // Exemple : appeler une fonction de filtrage ou mettre à jour l'affichage
+    }
+</script>
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>
