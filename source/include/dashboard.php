@@ -38,6 +38,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="user-section">
             <h2>User Section</h2>
             <p>This content is visible to all users.</p>
+            <?php echo "$_COOKIE[PHPSESSID]" ?>
             <!-- Add user-specific features here -->
             <ul>
                 <li><a href="edit_profile.php">Edit Profile</a></li>

@@ -25,6 +25,11 @@ session_start();
         <form action="login.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
+
+
+            <input type="checkbox" id="remember" name="remember"
+                <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?>>
+            <label for="remember">Remember Me</label>
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="register.php">Register here</a></p>
