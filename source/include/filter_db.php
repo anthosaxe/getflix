@@ -24,32 +24,15 @@ function get_by_name($name)
     return $results;
 }
 
-// function show_films($data){
-//     foreach($data as $res){
-//         echo "<div class='relative group w-full'>";
-//         echo "<a>";
-//         echo "<img src='".$res['image_url']."' alt='Movie Poster' class='w-full h-full object-cover'>";
-//         echo "<div class='absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center opacity-0 overlay transition-opacity duration-300'>";
-//         echo "<div class='text-center text-white'>";
-//         echo "<h2 class='text-2xl font-bold'>".$res['title']."</h2>";
-//         echo "<p class='mt-2 text-lg'>Note: ".$res['rating']."</p>";
-//         echo "</div>";
-//         echo "</div>";
-//         echo "</a>";
-//         echo "</div>";
-//       }
-// }
-
 $results = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $input = json_decode(file_get_contents("php://input"), true);
-
-    if (isset($input['genre']) && !empty($input['genre'])) {
-        $genre = $input['genre'];
+    // Les données envoyées sont en `application/x-www-form-urlencoded`
+    if (isset($_POST['genre']) && !empty($_POST['genre'])) {
+        $genre = $_POST['genre'];
         $results = get_by_genre($genre);
-    } elseif (isset($input['name']) && !empty($input['name'])) {
-        $name = $input['name'];
+    } elseif (isset($_POST['name']) && !empty($_POST['name'])) {
+        $name = $_POST['name'];
         $results = get_by_name($name);
     } else {
         $results = ["error" => "Search type or value not specified"];
