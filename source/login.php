@@ -62,24 +62,6 @@ $conn->close();
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <title>Failflix</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        body {
-            min-height: 100vh;
-        }
-
-        footer {
-            margin-top: auto;
-            max-height: 72px;
-        }
-    </style>
 </head>
 
 <body>

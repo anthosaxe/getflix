@@ -16,23 +16,6 @@ if (isset($_SESSION['error'])) {
     <title>Failflix</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        body {
-            min-height: 100vh;
-        }
-
-        footer {
-            margin-top: auto;
-        }
-    </style>
 </head>
 
 <body class="body-color">

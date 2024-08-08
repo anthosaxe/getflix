@@ -7,61 +7,6 @@
   <title>FailFlix</title>
   <link href="./css/style.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .group:hover .overlay {
-      opacity: 1;
-    }
-
-    .color-class {
-      background-color: #4853e4;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      padding-top: 72px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .no-text-select {
-      cursor: default;
-    }
-
-    .sidebar {
-      background-color: #1c1c1e;
-      min-height: 100vh;
-    }
-
-    .genre-button {
-      width: 100%;
-      color: white;
-      transition: background-color 0.3s;
-    }
-
-    .genre-button:hover {
-      background-color: #0056b3;
-    }
-
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    body {
-      min-height: 100vh;
-    }
-
-    footer {
-      margin-top: auto;
-    }
-  </style>
 </head>
 
 <body class="body-color">
@@ -163,7 +108,7 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       const genre = "comedy";
-      currentSearch = `Genre: 'comedy'`;
+      currentSearch = `Genre: Comedy`;
       fetchMoviesByGenre(genre);
     });
 
@@ -241,7 +186,7 @@
         const movieImg = document.createElement('img');
         movieImg.src = movie.image_url;
         movieImg.alt = 'Movie Poster';
-        movieImg.className = 'w-full h-full object-cover';
+        movieImg.className = 'w-full h-full object-cover rounded-lg';
 
         const overlayDiv = document.createElement('div');
         overlayDiv.className = 'absolute inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center opacity-0 overlay transition-opacity duration-300';
