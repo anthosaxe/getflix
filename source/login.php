@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Redirect to the dashboard
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit;
     } else {
         // Authentication failed

@@ -27,7 +27,7 @@ if (isset($_SESSION['error'])) {
         // unset($_SESSION['error']);
         // }
         ?>
-        <form action="register_process.php" method="post">
+        <form action="./include/register_process.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
@@ -40,9 +40,5 @@ if (isset($_SESSION['error'])) {
         <p>Already have an account? <a href="test_connection.php">Login here</a></p>
     </div>
 </body>
-<pre>
-        <?php var_dump($_COOKIE) ?>
-        <?php var_dump($_SESSION) ?>
-    </pre>
 
 </html>
