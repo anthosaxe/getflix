@@ -45,13 +45,29 @@
     .genre-button:hover {
       background-color: #0056b3;
     }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    footer {
+      margin-top: auto;
+    }
   </style>
 </head>
 
 <body class="body-color">
   <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-      <a href="./main.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="./images/cochon.jpg" class="h-8" alt="Flowbite Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FailFlix</span>
       </a>
@@ -77,25 +93,25 @@
         </button>
       </form>
       <div id="genre" class="">
-        <button id="comedy" class="genre-button">Comédie</button>
+        <button id="comedy" class="genre-button">Comedy</button>
         <button id="western" class="genre-button">Cow-boy</button>
-        <button id="adventure" class="genre-button">Aventure</button>
+        <button id="adventure" class="genre-button">Adventure</button>
         <button id="animation" class="genre-button">Animation</button>
         <button id="action" class="genre-button">Action</button>
         <button id="crime" class="genre-button">Crime</button>
-        <button id="documentary" class="genre-button">Documentaire</button>
-        <button id="drama" class="genre-button">Drame</button>
-        <button id="family" class="genre-button">Famille</button>
-        <button id="fantasy" class="genre-button">Fantaisie</button>
-        <button id="history" class="genre-button">Historique</button>
-        <button id="horror" class="genre-button">Horreur</button>
-        <button id="music" class="genre-button">Musical</button>
-        <button id="mystery" class="genre-button">Mystère</button>
+        <button id="documentary" class="genre-button">Documentary</button>
+        <button id="drama" class="genre-button">Drama</button>
+        <button id="family" class="genre-button">Family</button>
+        <button id="fantasy" class="genre-button">Fantasy</button>
+        <button id="history" class="genre-button">History</button>
+        <button id="horror" class="genre-button">Horror</button>
+        <button id="music" class="genre-button">Music</button>
+        <button id="mystery" class="genre-button">Mystery</button>
         <button id="romance" class="genre-button">Romance</button>
         <button id="science fiction" class="genre-button">Science-fiction</button>
         <button id="thriller" class="genre-button">Thriller</button>
         <button id="TV Movie" class="genre-button">TV Movie</button>
-        <button id="war" class="genre-button">guerre</button>
+        <button id="war" class="genre-button">War</button>
       </div>
     </div>
 
@@ -113,9 +129,9 @@
 
 
   <footer class="bg-white shadow dark:bg-gray-900">
-    <div class="w-full text-center max-w-screen-xl mx-auto p-4 md:py-8">
-      <div class="flex flex-col items-center">
-        <ul class="flex flex-wrap justify-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex justify-between items-center">
+      <div class="flex flex-col sm:flex-row items-start">
+        <ul class="flex flex-wrap justify-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
             <a href="#" class="hover:underline me-4 md:me-6">About</a>
           </li>
@@ -130,10 +146,9 @@
           </li>
         </ul>
       </div>
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+      <div class="text-sm text-gray-500 dark:text-gray-400">
         © 2024 <a href="#" class="hover:underline">Failflix-corp</a>. All Rights Reserved.
-      </span>
+      </div>
     </div>
   </footer>
 
@@ -145,6 +160,12 @@
     let currentPage = 0;
     const moviesPerPage = 12;
     let currentSearch = ''; // Track the current search term or genre
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const genre = "comedy";
+      currentSearch = `Genre: 'comedy'`;
+      fetchMoviesByGenre(genre);
+    });
 
     // Fonction pour gérer la recherche par nom
     document.querySelector('form').addEventListener('submit', function(event) {

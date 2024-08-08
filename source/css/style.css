@@ -232,3 +232,12 @@ transition: all 0.3s linear;
 #check:checked ~.btn-two i{
     opacity: 1;
 }
+
+body{
+    padding-top: 72px;
+}
+
+footer {
+    margin-top: auto;
+    max-height: 72px;
+}
