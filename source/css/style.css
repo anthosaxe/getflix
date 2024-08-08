@@ -1,4 +1,5 @@
 /*page login*/
+
 .log-box{
     width: 90%;
     max-width: 400px;
@@ -6,7 +7,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5%;
+    opacity: 80%;
+    background: rgb(195,34,164);
+    background: linear-gradient(0deg, rgba(195,34,164,1) 0%, rgba(12,201,30,1) 100%);
+
     padding: 50px 60px 70px;
     text-align: center;
 }
@@ -29,7 +35,6 @@
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 .input-field{
     background: #eaeaea;
@@ -81,9 +86,7 @@
     cursor: pointer;
     transition: background 1s;    
 }
-.input-group{
-    height: 50px;
-}
+
 .btn-field button.disable{
     background: #eaeaea;
     color: #555;
@@ -132,8 +135,7 @@ justify-items: end;
 .filter-menu {
     display: none;
     position: absolute;
-    top: 50px; q
-    left: 0;
+    top: 50px; 
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -422,3 +424,22 @@ transition: all 0.3s linear;
     margin: auto;
   }
    
+  /* image team */
+  .rounded-circle{
+        border-radius: 50%; 
+        width: 150px; 
+        height: 150px; 
+        object-fit: cover; 
+        margin-bottom: 15px; 
+    }
+
+    .container{
+        color: #fff;
+    }
+ footer{   
+    background-color: #343a40; /* Couleur de fond pour le footer */
+    color: white; /* Couleur du texte pour le footer */
+    text-align: center; /* Centre le texte dans le footer */
+    padding: 1rem 0; /* Ajoute un peu d'espace autour du texte */
+}
+  

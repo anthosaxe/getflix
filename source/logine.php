@@ -19,15 +19,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">À Propos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contactez-nous</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Équipe</a>
-          </li>
+        <li class="nav-item">
+     <a class="nav-link" href="./Team.php" >About The Team TRAP</a>
+        </li>
         </ul>
       </div>
     </div>
@@ -46,14 +40,13 @@
             <i class="fa-solid fa-envelope"></i>
             <input type="email" id="emailInput" placeholder="Email" required class="input">
           </div>
-        </div>
         <div class="input-field" id="passwordField">
           <i class="fa-solid fa-lock"></i>
           <input type="password" id="passwordInput" placeholder="Mot de passe" required class="input">
         </div>
-    
+        </div>
         <div>
-          <p>Mot de passe perdu ? <a href="#">Cliquez ici !</a></p>
+          <p>Mot de passe perdu ? <a href="./password.php">Cliquez ici !</a></p>
         </div>
         <div class="btn-field">
           <button type="button" id="signupBtn1">S'inscrire</button>
@@ -62,6 +55,16 @@
       </form>
     </div>
   </div>
+<br><br><br><br><br><br><br><br>
+  <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p><strong>Adresse :</strong> 123 Rue Imaginaire, 750 tartenpion, Belgique</p>
+            <p><strong>Téléphone :</strong> + 1 23 45 67 89</p>
+            <p><strong>Email :</strong> contact@exemple.com</p>
+            <p><strong>Numéro de TVA :</strong> FR12345678901</p>
+            <p>&copy; Since 2024. Tous droits réservés.</p>
+        </div>
+    </footer>
 
   <!-- js -->
   <script>
