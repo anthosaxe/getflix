@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 <?php
 if (isset($_SESSION['error'])) {
@@ -7,7 +7,7 @@ if (isset($_SESSION['error'])) {
     unset($_SESSION['error']);
 }
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,10 +22,10 @@ if (isset($_SESSION['error'])) {
     <div class="container">
         <h1>Getflix Registration</h1>
         <?php
-        if (isset($_SESSION['error'])) {
-            echo "<p class='error'>{$_SESSION['error']}</p>";
-            unset($_SESSION['error']);
-        }
+        // if (isset($_SESSION['error'])) {
+        // echo "<p class='error'>{$_SESSION['error']}</p>";
+        // unset($_SESSION['error']);
+        // }
         ?>
         <form action="register_process.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
@@ -37,8 +37,12 @@ if (isset($_SESSION['error'])) {
             </label>
             <button type="submit">Register</button>
         </form>
-        <p>Already have an account? <a href="index.php">Login here</a></p>
+        <p>Already have an account? <a href="test_connection.php">Login here</a></p>
     </div>
 </body>
+<pre>
+        <?php var_dump($_COOKIE) ?>
+        <?php var_dump($_SESSION) ?>
+    </pre>
 
-</html> -->
+</html>

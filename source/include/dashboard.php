@@ -1,11 +1,17 @@
 <?php
 session_start();
 
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit();
+    header("Location: login.php");
+    exit;
 }
+
+// Display the dashboard content
+echo "<h1>Welcome to your dashboard, " . htmlspecialchars($_SESSION['username']) . "!</h1>";
+echo "<a href='logout.php'>Logout</a>";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,20 +30,21 @@ if (!isset($_SESSION['user_id'])) {
         <p>This is your dashboard.</p>
 
         <?php if ($_SESSION['role'] === 'admin') : ?>
-            <div class="admin-section">
-                <h2>Admin Section</h2>
-                <p>This content is only visible to administrators.</p>
-                <!-- Add admin-specific features here -->
-                <ul>
-                    <li><a href="manage_users.php">Manage Users</a></li>
-                    <li><a href="site_settings.php">Site Settings</a></li>
-                </ul>
-            </div>
+        <div class="admin-section">
+            <h2>Admin Section</h2>
+            <p>This content is only visible to administrators.</p>
+            <!-- Add admin-specific features here -->
+            <ul>
+                <li><a href="manage_users.php">Manage Users</a></li>
+                <li><a href="site_settings.php">Site Settings</a></li>
+            </ul>
+        </div>
         <?php endif; ?>
 
         <div class="user-section">
             <h2>User Section</h2>
             <p>This content is visible to all users.</p>
+            <?php echo "$_COOKIE[PHPSESSID]" ?>
             <!-- Add user-specific features here -->
             <ul>
                 <li><a href="edit_profile.php">Edit Profile</a></li>
