@@ -17,12 +17,15 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
         <ul class="navbar-nav">
-        <li class="nav-item">
-     <a class="nav-link" href="./Team.php" >About The Team TRAP</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Team.php">About The Team TRAP</a>
+          </li>
         </ul>
+        <a href="https://github.com/anthosaxe/getflix" target="_blank" class="nav-link" style="color:black;">
+          <i class="fab fa-github"></i> GitHub
+        </a>
       </div>
     </div>
   </nav>
@@ -40,10 +43,10 @@
             <i class="fa-solid fa-envelope"></i>
             <input type="email" id="emailInput" placeholder="Email" required class="input">
           </div>
-        <div class="input-field" id="passwordField">
-          <i class="fa-solid fa-lock"></i>
-          <input type="password" id="passwordInput" placeholder="Mot de passe" required class="input">
-        </div>
+          <div class="input-field" id="passwordField">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="passwordInput" placeholder="Mot de passe" required class="input">
+          </div>
         </div>
         <div>
           <p>Mot de passe perdu ? <a href="./password.php">Cliquez ici !</a></p>
@@ -55,48 +58,50 @@
       </form>
     </div>
   </div>
-<br><br><br><br><br><br><br><br>
-  <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p><strong>Adresse :</strong> 123 Rue Imaginaire, 750 tartenpion, Belgique</p>
-            <p><strong>Téléphone :</strong> + 1 23 45 67 89</p>
-            <p><strong>Email :</strong> contact@exemple.com</p>
-            <p><strong>Numéro de TVA :</strong> FR12345678901</p>
-            <p>&copy; Since 2024. Tous droits réservés.</p>
-        </div>
-    </footer>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</b>
+
+<footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <p><strong>Adresse :</strong> 123 Rue Imaginaire, 750 tartenpion, Belgique</p>
+    <p><strong>Téléphone :</strong> + 1 23 45 67 89</p>
+    <p><strong>Email :</strong> contact@exemple.com</p>
+    <p><strong>Numéro de TVA :</strong> FR12345678901</p>
+    <p>&copy; Since 2024. Tous droits réservés.</p>
+  </div>
+</footer>
 
   <!-- js -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-        console.log("Test JavaScript en ligne : DOM entièrement chargé et analysé");
+      console.log("Test JavaScript en ligne : DOM entièrement chargé et analysé");
 
-        let signupBtn = document.getElementById("signupBtn1");
-        let signinBtn = document.getElementById("signupBtn2");
-        let nameField = document.getElementById("nameField");
-        let emailField = document.getElementById("emailField");
-        let passwordField = document.getElementById("passwordField");
-        let title = document.getElementById("title");
+      let signupBtn = document.getElementById("signupBtn1");
+      let signinBtn = document.getElementById("signupBtn2");
+      let nameField = document.getElementById("nameField");
+      let emailField = document.getElementById("emailField");
+      let passwordField = document.getElementById("passwordField");
+      let title = document.getElementById("title");
 
-        console.log("Éléments récupérés :", { signupBtn, signinBtn, nameField, emailField, passwordField, title });
+      console.log("Éléments récupérés :", { signupBtn, signinBtn, nameField, emailField, passwordField, title });
 
-        signinBtn.onclick = function(){
-            console.log("Bouton Connexion cliqué");
-            nameField.style.display = "none";
-            emailField.querySelector('input').setAttribute('placeholder', 'Nom');
-            title.innerHTML = "Connexion";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-        }
+      signinBtn.onclick = function(){
+        console.log("Bouton Connexion cliqué");
+        nameField.style.display = "none";
+        emailField.querySelector('input').setAttribute('placeholder', 'Nom');
+        title.innerHTML = "Connexion";
+        signupBtn.classList.add("disable");
+        signinBtn.classList.remove("disable");
+      }
 
-        signupBtn.onclick = function(){
-            console.log("Bouton Inscription cliqué");
-            nameField.style.display = "flex";
-            emailField.querySelector('input').setAttribute('placeholder', 'Email');
-            title.innerHTML = "Inscription";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
-        }
+      signupBtn.onclick = function(){
+        console.log("Bouton Inscription cliqué");
+        nameField.style.display = "flex";
+        emailField.querySelector('input').setAttribute('placeholder', 'Email');
+        title.innerHTML = "Inscription";
+        signupBtn.classList.remove("disable");
+        signinBtn.classList.add("disable");
+      }
     });
   </script>
 

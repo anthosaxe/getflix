@@ -23,10 +23,17 @@
      <a class="nav-link" href="./logine.php" >Connection</a>
         </li>
         </ul>
+         <a href="https://github.com/anthosaxe/getflix" target="_blank" style="color:black;">
+    <i class="fab fa-github"></i> GitHub
+</a>
       </div>
     </div>
   </nav>
     <br><br><br>
+
+   
+
+    
 
     <div class="container my-5">
         <h1 class="text-center mb-4">L'Équipe TRAP de FailFlix</h1>

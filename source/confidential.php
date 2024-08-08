@@ -19,8 +19,10 @@
         <li class="nav-item">
      <a class="nav-link" href="./Team.php" >About The Team TRAP</a>
         </li>
+       
         </ul>
       </div>
+    
     </div>
   </nav>
   <div class="text-success">
