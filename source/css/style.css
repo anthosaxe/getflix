@@ -1,8 +1,10 @@
 html,
 body {
+    height: 100%;
     margin: 0; /* Supprime les marges par défaut du body */
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 body {
@@ -34,13 +36,12 @@ body {
 }
 
 .genre-button:hover {
-    background-color: #0056b3;
+    background-color: black;
 }
 
 /* Container for the movie details */
 .movie-detail {
     display: flex;
-    background: linear-gradient(135deg, #4853e4 50%, #ea13b6 100%);
     padding: 20px;
     border-radius: 15px;
     margin: 20px;
@@ -73,7 +74,6 @@ body {
 
 .movie-detail .rating {
     font-size: 1.2rem;
-    color: #ffeb3b;
     margin-bottom: 5px;
 }
 
@@ -107,5 +107,6 @@ body {
     @apply bg-blue-500 text-white;
   }
 
-
-
+  .flex-1 {
+    flex: 1;
+}

@@ -150,7 +150,7 @@ let movies = [];
         pageNumberButton.className = 'px-3 py-1 rounded-lg';
 
         if (i === currentPage) {
-          pageNumberButton.classList.add('bg-blue-500', 'text-white');
+          pageNumberButton.classList.add('bg-gray-400', 'text-white');
         } else {
           pageNumberButton.classList.add('bg-gray-200', 'text-gray-700');
         }
