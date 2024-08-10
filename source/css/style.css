@@ -16,10 +16,6 @@ body {
     opacity: 1;
 }
 
-.color-class {
-    background-color: #4853e4;
-}
-
 .no-text-select {
     cursor: default;
 }
@@ -97,15 +93,15 @@ body {
 
 #page-numbers button {
     @apply p-2 text-sm bg-gray-200 rounded-lg;
-  }
+}
   
   #page-numbers button:hover {
     @apply bg-gray-300;
-  }
+}
   
   #page-numbers button.bg-blue-500 {
     @apply bg-blue-500 text-white;
-  }
+}
 
   .flex-1 {
     flex: 1;

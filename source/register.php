@@ -1,7 +1,6 @@
 <?php
 session_start();
-?>
-<?php
+
 if (isset($_SESSION['error'])) {
     echo "<p class='error'>{$_SESSION['error']}</p>";
     unset($_SESSION['error']);
@@ -29,10 +28,6 @@ if (isset($_SESSION['error'])) {
               <img src="./images/cochon.jpg" class="h-8" />
               <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">FailFlix</span>
             </a>
-
-            <button class="inline-flex items-center p-2 w-12 h-8 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav-menu" aria-expanded="false">
-              <a href="login.php">login</a>
-            </button>
           </div>
         </div>
       </nav>

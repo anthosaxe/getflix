@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +25,21 @@
               <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">FailFlix</span>
             </a>
 
-            <button class="inline-flex items-center p-2 w-12 h-8 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav-menu" aria-expanded="false">
-              <a href="login.php">login</a>
-            </button>
+            <?php
+
+            if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
+              echo '<div>';
+              echo "<p class='text-white'>connected as " . htmlspecialchars($_SESSION['username']) . "</p>";
+              echo '<button class="inline-flex text-center text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                    <a href="logout.php">logout</a>
+                    </button>';
+              echo '</div>';
+            } else {
+              echo '<button class="inline-flex items-center p-2 w-12 h-8 text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                    <a href="login.php">login</a>
+                    </button>';
+            }
+            ?>
           </div>
         </div>
       </nav>

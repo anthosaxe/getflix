@@ -1,57 +1,5 @@
 <?php
-session_start();
-
-// Database connection setup
-$servername = "db";
-$db_username = "user";
-$db_password = "pass";
-$dbname = "mydb";
-
-// Create connection
-$conn = new mysqli($servername, $db_username, $db_password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if the cookie is set and retrieve the username
-$savedUsername = isset($_COOKIE['username']) ? htmlspecialchars($_COOKIE['username']) : '';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Prepare and execute the SQL statement to find the user
-    $stmt = $conn->prepare("SELECT id, password, role FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->bind_result($user_id, $hashed_password, $role);
-    $stmt->fetch();
-
-    // Verify the password
-    if ($user_id && password_verify($password, $hashed_password)) {
-        // Set session variables
-        $_SESSION['user_id'] = $user_id;
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = $role;
-
-        // If "Remember Me" is checked, set the cookie
-        if (isset($_POST['remember'])) {
-            setcookie('username', $username, time() + 86400, "/"); // 86400 seconds = 1 day
-        }
-
-        // Redirect to the dashboard
-        header("Location: index.php");
-        exit;
-    } else {
-        // Authentication failed
-        echo "Invalid username or password.";
-    }
-
-    $stmt->close();
-}
-
-$conn->close();
+include "./include/login_process.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,22 +15,18 @@ $conn->close();
 <body>
 
     <div class="flex flex-col h-screen justify-between">
-    <header>
-      <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50 bg-gray-900">
-        <div class="container mx-auto p-4">
-          <div class="flex flex-wrap justify-between items-center">
-            <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src="./images/cochon.jpg" class="h-8" />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">FailFlix</span>
-            </a>
-
-            <button class="inline-flex items-center p-2 w-12 h-8 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav-menu" aria-expanded="false">
-              <a href="login.php">login</a>
-            </button>
-          </div>
-        </div>
-      </nav>
-    </header>
+        <header>
+            <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50 bg-gray-900">
+                <div class="container mx-auto p-4">
+                    <div class="flex flex-wrap justify-between items-center">
+                        <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+                            <img src="./images/cochon.jpg" class="h-8" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">FailFlix</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
         <main class="mb-auto h-10">
             <form class="max-w-sm mx-auto my-5" method="post" action="login.php">
@@ -108,28 +52,28 @@ $conn->close();
 
 
         <footer class="shadow bg-gray-900">
-      <div class="container mx-auto p-4 md:py-8">
-        <div class="flex flex-col sm:flex-row justify-between items-center">
-          <ul class="flex flex-wrap justify-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">About</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-            </li>
-            <li>
-              <a href="#" class="hover:underline">Contact</a>
-            </li>
-          </ul>
-          <div class="text-sm text-gray-500 dark:text-gray-400">
-            © 2024 <a href="#" class="hover:underline">Failflix-corp</a>. All Rights Reserved.
-          </div>
-        </div>
-      </div>
-    </footer>
+            <div class="container mx-auto p-4 md:py-8">
+                <div class="flex flex-col sm:flex-row justify-between items-center">
+                    <ul class="flex flex-wrap justify-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                        <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">
+                        © 2024 <a href="#" class="hover:underline">Failflix-corp</a>. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </div>
 
