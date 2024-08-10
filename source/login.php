@@ -66,79 +66,69 @@ $conn->close();
 
 <body>
 
-    <body class="body-color">
-        <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50">
-            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-                <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="./images/cochon.jpg" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FailFlix</span>
-                </a>
-                <div class="flex items-center space-x-6 rtl:space-x-reverse">
-                    <a href="login.php" class="border text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Login</a>
+    <div class="flex flex-col justify-between">
+        <header>
+            <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50 bg-white dark:bg-gray-900">
+                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                    <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="./images/cochon.jpg" class="h-8" alt="Flowbite Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FailFlix</span>
+                    </a>
+
+                    <button class="inline-flex items-center p-2 w-12 h-8 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="nav-menu" aria-expanded="false">
+                        <a href="login.php">login</a>
+                    </button>
+
                 </div>
-            </div>
-        </nav>
-        <form class="max-w-sm mx-auto my-5" method="post" action="login.php">
-            <div class="mb-5">
-                <label for="username" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                <input id="username" name="username" value="<?php echo $savedUsername; ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="JOJO L CROCO" required />
-            </div>
-            <div class="mb-5">
-                <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input type="password" id="password" name="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
-            </div>
-            <div class="flex items-start mb-5">
-                <div class="flex items-center h-5">
-                    <input id="terms" type="checkbox" name="newsletter" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+            </nav>
+        </header>
+
+        <main>
+            <form class="max-w-sm mx-auto my-5" method="post" action="login.php">
+                <div class="mb-5">
+                    <label for="username" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                    <input id="username" name="username" value="<?php echo $savedUsername; ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                 </div>
-                <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember Me</a></label>
-            </div>
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log In</button>
-            <p>No account? Register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
-        </form>
-        </div>
+                <div class="mb-5">
+                    <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input type="password" id="password" name="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                </div>
+                <div class="flex items-start mb-5">
+                    <div class="flex items-center h-5">
+                        <input id="terms" type="checkbox" name="newsletter" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                    </div>
+                    <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember Me</a></label>
+                </div>
+                <button type="submit" class="mb-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log In</button>
+                <p class="text-white">No account? Register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
+            </form>
+
+        </main>
+
+
         <footer class="bg-white shadow dark:bg-gray-900">
-            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex justify-between items-center">
-                <div class="flex flex-col sm:flex-row items-start">
-                    <ul class="flex flex-wrap justify-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">About</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8 flex flex-col sm:flex-row justify-between items-center">
+                <ul class="flex flex-wrap justify-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
                 <div class="text-sm text-gray-500 dark:text-gray-400">
                     © 2024 <a href="#" class="hover:underline">Failflix-corp</a>. All Rights Reserved.
                 </div>
             </div>
         </footer>
+    </div>
 
-
-    </body>
 </body>
 
 </html>
-
-
-<!-- <form method="post" action="test_connection.php">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" value="<?php //echo $savedUsername; 
-                                                            ?>" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <input type="checkbox" id="remember" name="remember">
-    <label for="remember">Remember Me</label>
-
-    <button type="submit">Login</button>
-</form>
-<p>Don't have an account? <a href="register.php">Register here</a></p> -->
