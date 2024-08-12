@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         if ($stmt->execute()) {
             $_SESSION['success'] = "Registration successful. You can now log in.";
-            header("Location: ../film.php");
+            header("Location: ../index.php");
             exit();
         } else {
             throw new Exception("Registration failed. Please try again.");
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION['error'] = "An error occurred during registration. Please try again.";
         }
-        header("Location: register.php");
+        header("Location: ../register.php");
         exit();
     } catch (Exception $e) {
         $_SESSION['error'] = $e->getMessage();
@@ -65,38 +65,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-// session_start();
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $username = $_POST['username'];
-//     $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash the password
-//     $email = $_POST['email'];
-
-//     // Database connection
-//     $servername = "db";
-//     $db_username = "user";
-//     $db_password = "pass";
-//     $dbname = "mydb";
-
-//     $conn = new mysqli($servername, $db_username, $db_password, $dbname);
-
-//     if ($conn->connect_error) {
-//         die("Connection failed: " . $conn->connect_error);
-//     }
-
-//     // Insert user into the database
-//     $stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
-//     $stmt->bind_param("sss", $username, $password, $email);
-
-//     if ($stmt->execute()) {
-//         $_SESSION['user_id'] = $conn->insert_id;
-//         $_SESSION['username'] = $username;
-//         $_SESSION['role'] = 'user'; // Default role
-//         header("Location: dashboard.php");
-//     } else {
-//         echo "Error: " . $stmt->error;
-//     }
-
-//     $stmt->close();
-//     $conn->close();
-// }
