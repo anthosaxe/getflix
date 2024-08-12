@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['film'] = $_GET['name'];
 // include "./include/submit_comment.php";
 // $nom = $_GET['name'];
 // $session = $_SESSION['username'];
@@ -84,6 +85,16 @@ session_start();
             </div>';
       }
       ?>
+      <div class="flex justify-center mb-5">
+        <div class="w-3/4 bg-gray-800 p-6 rounded-lg shadow-lg">
+          <?php
+          require_once "./include/get_comment.php";
+          ?>
+        </div>
+      </div>
+
+
+
     </main>
 
     <footer class="shadow bg-gray-900">
