@@ -80,7 +80,7 @@ $_SESSION['film'] = $_GET['name'];
                 <h1 class="text-4xl text-center text-white text-extrabold">
                     You need an account to comment and see details,<br>
                     <p class="text-white">Log in <a href="login.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
-                    <p class="text-white">Or register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
+                    <p class="text-white mb-5">Or register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
                 </h1>
             </div>';
       }
@@ -88,7 +88,9 @@ $_SESSION['film'] = $_GET['name'];
       <div class="flex justify-center mb-5">
         <div class="w-3/4 bg-gray-800 p-6 rounded-lg shadow-lg">
           <?php
-          require_once "./include/get_comment.php";
+          if (!empty($_SESSION['username'])){
+            require_once "./include/get_comment.php";
+          }
           ?>
         </div>
       </div>

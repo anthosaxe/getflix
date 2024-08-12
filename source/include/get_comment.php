@@ -15,7 +15,15 @@ $username = $_SESSION['username'];
 $movie_title = $_SESSION['film'];
 $movie_title = "%$movie_title%"; 
 
-$stmt = $conn->prepare("SELECT comments.id AS comment_id, comments.content AS comment_content, comments.validate AS comment_validated, movies.title AS movie_title, users.username AS user_username FROM comments INNER JOIN movies ON comments.movie_id = movies.id INNER JOIN users ON comments.user_id = users.id WHERE movies.title LIKE ?");
+$stmt = $conn->prepare("SELECT comments.id AS comment_id, 
+comments.content AS comment_content, 
+comments.validate AS comment_validated, 
+movies.title AS movie_title, 
+users.username AS user_username 
+FROM comments INNER JOIN movies 
+ON comments.movie_id = movies.id 
+INNER JOIN users ON comments.user_id = users.id 
+WHERE movies.title LIKE ?");
 
 $stmt->bind_param("s", $movie_title);
 
