@@ -84,20 +84,6 @@ session_start();
             </div>';
       }
       ?>
-
-      <div class="container mx-auto px-4 mt-10">
-        <h2 class="text-lg lg:text-2xl font-bold text-white mb-4 flex justify-center">Comments</h2>
-        <?php if (!empty($comments)): ?>
-          <?php foreach ($comments as $comment): ?>
-            <div class="bg-gray-700 p-4 rounded-lg mb-4 flex justify-center">
-              <p class="text-white">"<?php echo htmlspecialchars($comment['username']); ?>" : "<?php echo htmlspecialchars($comment['content']); ?>"</p>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <p class="text-white flex justify-center">Be the first to comment !</p>
-        <?php endif; ?>
-      </div>
-
     </main>
 
     <footer class="shadow bg-gray-900">

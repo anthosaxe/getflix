@@ -31,17 +31,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment'])){
     $stmt->close();
     $conn->close();
 }
-
-$stmt = $conn->prepare("SELECT users.username, comments.content, comments.created_at FROM comments JOIN users ON comments.user_id = users.id JOIN movies ON comments.movie_id = movies.id WHERE movies.title = ? AND comments.validate = 1");
-$stmt->bind_param("s", $movie_name);
-$stmt->execute();
-$result = $stmt->get_result();
-
-$comments = [];
-while ($row = $result->fetch_assoc()) {
-    $comments[] = $row;
-}
-
-$stmt->close();
-$conn->close();
 ?>
+
