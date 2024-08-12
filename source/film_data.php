@@ -1,5 +1,6 @@
 <?php
 session_start();
+// include "./include/submit_comment.php";
 // $nom = $_GET['name'];
 // $session = $_SESSION['username'];
 ?>
@@ -58,7 +59,7 @@ session_start();
         <section class="body-color py-8 lg:py-16 antialiased">
           <div class="max-w-2xl mx-auto px-4">
             <div class="flex justify-between items-center mb-6">
-              <h2 class="text-lg lg:text-2xl font-bold text-white">Comment</h2>
+              <h2 class="text-lg lg:text-2xl font-bold text-white">Leave a comment</h2>
             </div>
             <form id="comment-form" class="mb-6" method="post">
               <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -83,6 +84,20 @@ session_start();
             </div>';
       }
       ?>
+
+      <div class="container mx-auto px-4 mt-10">
+        <h2 class="text-lg lg:text-2xl font-bold text-white mb-4 flex justify-center">Comments</h2>
+        <?php if (!empty($comments)): ?>
+          <?php foreach ($comments as $comment): ?>
+            <div class="bg-gray-700 p-4 rounded-lg mb-4 flex justify-center">
+              <p class="text-white">"<?php echo htmlspecialchars($comment['username']); ?>" : "<?php echo htmlspecialchars($comment['content']); ?>"</p>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="text-white flex justify-center">Be the first to comment !</p>
+        <?php endif; ?>
+      </div>
+
     </main>
 
     <footer class="shadow bg-gray-900">
