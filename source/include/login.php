@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $role;
 
-        header("Location: dashboard.php");
+        header("Location: ../film.php");
     } else {
         echo "Invalid username or password.";
     }
@@ -62,8 +62,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
-
-
-
     <button type="submit">Login</button>
 </form>
