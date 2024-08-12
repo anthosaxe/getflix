@@ -1,5 +1,7 @@
 <?php
-  session_start();
+session_start();
+// $nom = $_GET['name'];
+// $session = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
 <body class="body-color">
 
   <div class="flex flex-col h-screen justify-between">
-  <header>
+    <header>
       <nav class="color-class border-gray-200 fixed w-full top-0 left-0 z-50 bg-gray-900">
         <div class="container mx-auto p-4">
           <div class="flex flex-wrap justify-between items-center">
@@ -26,7 +28,6 @@
             </a>
 
             <?php
-
             if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
               echo '<div>';
               echo "<p class='text-white'>connected as " . htmlspecialchars($_SESSION['username']) . "</p>";
@@ -46,18 +47,20 @@
     </header>
 
     <main class="mb-auto">
-
       <div class="container mx-auto px-4 mt-20">
         <div id="movie-detail" class="text-white bg-gray-800 movie-detail flex p-6 rounded-lg shadow-md"></div>
       </div>
 
-      <div>
+      <?php
+      // Afficher le formulaire de commentaire uniquement si l'utilisateur est connecté
+      if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
+        echo '<div>
         <section class="body-color py-8 lg:py-16 antialiased">
           <div class="max-w-2xl mx-auto px-4">
             <div class="flex justify-between items-center mb-6">
               <h2 class="text-lg lg:text-2xl font-bold text-white">Comment</h2>
             </div>
-            <form id="comment-form" class="mb-6">
+            <form id="comment-form" class="mb-6" method="post">
               <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                 <label for="comment" class="sr-only">Your comment</label>
                 <textarea id="comment" name="comment" rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" required></textarea>
@@ -69,7 +72,17 @@
             </form>
           </div>
         </section>
-      </div>
+      </div>';
+      } else {
+        echo '<div class="flex justify-center">
+                <h1 class="text-4xl text-center text-white text-extrabold">
+                    You need an account to comment and see details,<br>
+                    <p class="text-white">Log in <a href="login.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
+                    <p class="text-white">Or register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
+                </h1>
+            </div>';
+      }
+      ?>
     </main>
 
     <footer class="shadow bg-gray-900">

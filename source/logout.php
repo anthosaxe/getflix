@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,3 +67,7 @@
 </body>
 
 </html>
+
+<?php
+    include "./include/logout_process.php";
+?>

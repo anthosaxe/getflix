@@ -30,7 +30,7 @@ session_start();
               echo '<div>';
               echo "<p class='text-white'>connected as " . htmlspecialchars($_SESSION['username']) . "</p>";
               echo '<button class="inline-flex text-center text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
-                    <a href="logout.php">logout</a>
+                    <a href="./logout.php">logout</a>
                     </button>';
               echo '</div>';
             } else {
