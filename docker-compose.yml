@@ -8,9 +8,9 @@ services:
       - "8000:80"
     volumes:
       - ./source:/var/www/html
-    build: 
+    build:
       context: .
-      dockerfile: DockerFile
+      dockerfile: Dockerfile
     depends_on:
       - db
 
@@ -25,7 +25,9 @@ services:
       MYSQL_PASSWORD: pass
     ports:
       - "3307:3306"
-  
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
   phpma:
     image: phpmyadmin/phpmyadmin
     container_name: phpma-getflix
@@ -36,3 +38,4 @@ services:
       PMA_PASSWORD: pass
     ports:
       - 8899:80
+
