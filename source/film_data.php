@@ -1,5 +1,9 @@
 <?php
 session_start();
+$_SESSION['film'] = $_GET['name'];
+// include "./include/submit_comment.php";
+// $nom = $_GET['name'];
+// $session = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -27,19 +31,19 @@ session_start();
                         </a>
 
                         <?php
-            if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
-              echo '<div>';
-              echo "<p class='text-white'>connected as " . htmlspecialchars($_SESSION['username']) . "</p>";
-              echo '<button class="inline-flex text-center text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                        if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
+                            echo '<div>';
+                            echo "<p class='text-white'>connected as " . htmlspecialchars($_SESSION['username']) . "</p>";
+                            echo '<button class="inline-flex text-center text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
                     <a href="logout.php">logout</a>
                     </button>';
-              echo '</div>';
-            } else {
-              echo '<button class="inline-flex items-center p-2 w-12 h-8 text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
+                            echo '</div>';
+                        } else {
+                            echo '<button class="inline-flex items-center p-2 w-12 h-8 text-sm rounded-lg focus:outline-none focus:ring-2 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
                     <a href="login.php">login</a>
                     </button>';
-            }
-            ?>
+                        }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -51,12 +55,12 @@ session_start();
             </div>
 
             <?php
-      if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
-        echo '<div>
+            if (isset($_SESSION['username']) && $_SESSION['username'] !== null) {
+                echo '<div>
         <section class="body-color py-8 lg:py-16 antialiased">
           <div class="max-w-2xl mx-auto px-4">
             <div class="flex justify-between items-center mb-6">
-              <h2 class="text-lg lg:text-2xl font-bold text-white">Comment</h2>
+              <h2 class="text-lg lg:text-2xl font-bold text-white">Leave a comment</h2>
             </div>
             <form id="comment-form" class="mb-6" method="post">
               <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -71,16 +75,28 @@ session_start();
           </div>
         </section>
       </div>';
-      } else {
-        echo '<div class="flex justify-center">
+            } else {
+                echo '<div class="flex justify-center">
                 <h1 class="text-4xl text-center text-white text-extrabold">
                     You need an account to comment and see details,<br>
                     <p class="text-white">Log in <a href="login.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
-                    <p class="text-white">Or register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
+                    <p class="text-white mb-5">Or register <a href="register.php" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">here</a></p>
                 </h1>
             </div>';
-      }
-      ?>
+            }
+            ?>
+            <div class="flex justify-center mb-5">
+                <div class="w-3/4 bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <?php
+                    if (!empty($_SESSION['username'])) {
+                        require_once "./include/get_comment.php";
+                    }
+                    ?>
+                </div>
+            </div>
+
+
+
         </main>
 
         <footer class="shadow bg-gray-900">
@@ -110,47 +126,47 @@ session_start();
 
     </div>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const movieName = urlParams.get('name');
-        document.getElementById('movie-name').value = movieName; // Set the movie name in the hidden input
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieName = urlParams.get('name');
+            document.getElementById('movie-name').value = movieName; // Set the movie name in the hidden input
 
-        if (movieName) {
-            fetchMovieData(movieName);
-        } else {
-            console.error('No movie name provided in the URL.');
+            if (movieName) {
+                fetchMovieData(movieName);
+            } else {
+                console.error('No movie name provided in the URL.');
+            }
+
+            // Handle form submission with AJAX
+            document.getElementById('comment-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                submitComment(movieName); // Call the submitComment function
+            });
+        });
+
+        function fetchMovieData(name) {
+            fetch(`./include/filter_db.php?name=${encodeURIComponent(name)}`, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (Array.isArray(data) && data.length > 0) {
+                        displayMovieDetails(data[0]);
+                    } else {
+                        console.log('No movie found with the name:', name);
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
         }
 
-        // Handle form submission with AJAX
-        document.getElementById('comment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            submitComment(movieName); // Call the submitComment function
-        });
-    });
-
-    function fetchMovieData(name) {
-        fetch(`./include/filter_db.php?name=${encodeURIComponent(name)}`, {
-                method: 'GET'
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (Array.isArray(data) && data.length > 0) {
-                    displayMovieDetails(data[0]);
-                } else {
-                    console.log('No movie found with the name:', name);
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-
-    function displayMovieDetails(movie) {
-        const movieDetailDiv = document.getElementById('movie-detail');
-        movieDetailDiv.innerHTML = `
+        function displayMovieDetails(movie) {
+            const movieDetailDiv = document.getElementById('movie-detail');
+            movieDetailDiv.innerHTML = `
         <div class="left-side w-1/2">
           <h1 class="text-2xl font-bold mb-4">${movie.title}</h1>
           <img src="${movie.image_url}" alt="Movie Poster" class="w-full max-w-sm rounded-lg shadow-md mb-4">
@@ -161,38 +177,38 @@ session_start();
           <p class="text-gray-200">${movie.description}</p>
         </div>
       `;
-    }
-
-    function submitComment() {
-        const comment = document.getElementById('comment').value;
-
-        // Ensure the movie name is passed along with the POST request
-        const urlParams = new URLSearchParams(window.location.search);
-        const movieName = urlParams.get('name');
-
-        if (!movieName) {
-            console.error('No movie name provided in the URL.');
-            return;
         }
 
-        fetch('./include/submit_comment.php?name=' + encodeURIComponent(
-            movieName), { // Passes the movie name in the GET parameter
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    comment: comment
+        function submitComment() {
+            const comment = document.getElementById('comment').value;
+
+            // Ensure the movie name is passed along with the POST request
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieName = urlParams.get('name');
+
+            if (!movieName) {
+                console.error('No movie name provided in the URL.');
+                return;
+            }
+
+            fetch('./include/submit_comment.php?name=' + encodeURIComponent(
+                    movieName), { // Passes the movie name in the GET parameter
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        comment: comment
+                    })
                 })
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log('Comment submitted:', data);
-                document.getElementById('comment-form').reset(); // Clear the form
-                alert(data); // Display the server response
-            })
-            .catch(error => console.error('Error submitting comment:', error));
-    }
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Comment submitted:', data);
+                    document.getElementById('comment-form').reset(); // Clear the form
+                    alert(data); // Display the server response
+                })
+                .catch(error => console.error('Error submitting comment:', error));
+        }
     </script>
 
 </body>
