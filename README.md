@@ -2,6 +2,8 @@
 
 Welcome to Failflix, a streaming platform inspired by popular services like Netflix and Amazon Prime Video. This project was created as a learning exercise to put our skills into practice by developing a full-stack web application. Our team of four junior developers worked on this project using a combination of PHP, HTML, CSS, JavaScript, and Docker to bring it to life.
 
+Deploy URL: http://167.99.219.68:8000/
+
 ## Table of Contents
 
 - [Mission Objectives](#mission-objectives)
