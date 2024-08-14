@@ -109,7 +109,7 @@ We utilized **The Movie Database (TMDb) API** to fetch data for the movie catalo
   - M Luan Patrick - [GitHub Profile](https://github.com/LuanPM284)
 - **Frontend Developers**:
   - Tommy - [GitHub Profile](https://github.com/Mus1shi)
-  - Ronsard - [GitHub Profile](https://github.com/developer4)
+  - D Anthony - [GitHub Profile](https://github.com/anthosaxe)
 
 ## Future Enhancements
 
