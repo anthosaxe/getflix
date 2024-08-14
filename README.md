@@ -86,11 +86,12 @@ Once the site is running, you can:
 ```
 getflix/
 │
-├── backend/                # PHP backend files
-├── frontend/               # HTML, CSS, and JavaScript files
+├── source/                 # PHP backend files
+├── source/                 # HTML, CSS, and JavaScript files
 ├── database/               # Database setup and migration files
 ├── docker-compose.yml      # Docker configuration
-├── .env.example            # Example environment file
+├── Dockerfile              # Docker environment
+├── mysql-init              # Defaut database file
 ├── README.md               # Project documentation
 └── ...                     # Other files and directories
 ```
