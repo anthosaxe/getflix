@@ -15,7 +15,6 @@ Deploy URL: [getflix-project](http://64.227.71.83:8000/)
 - [API Integration](#api-integration)
 - [Team](#team)
 - [Future Enhancements](#future-enhancements)
-- [License](#license)
 
 ## Mission Objectives
 
