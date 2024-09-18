@@ -117,4 +117,3 @@ We utilized **The Movie Database (TMDb) API** to fetch data for the movie catalo
 - Back office for user and comment management (CRUD).
 - Create a page or section that displays the top movies with the movie db API.
 - Integrate a newsletter with Mailchimp.
-```
